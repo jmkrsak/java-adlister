@@ -22,7 +22,7 @@ public class PizzaOrderServlet extends HttpServlet {
         String crust = request.getParameter("crust");
         String sauce = request.getParameter("sauce");
         String size = request.getParameter("size");
-        String toppings = request.getParameter("toppings");
+        String[] toppings = request.getParameterValues("toppings");
         String address = request.getParameter("address");
 
         PrintWriter out = response.getWriter();
