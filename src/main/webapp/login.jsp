@@ -15,7 +15,17 @@
             <input type="submit" value="Submit">
         </form>
 
-    <%%>
+    <%
+
+        if (request.getMethod().equalsIgnoreCase("POST")) {
+            String name = request.getParameter("username");
+            String password = request.getParameter("password");
+            if (name.equals("admin") && password.equals("password")) {
+                response.sendRedirect("/profile.jsp");
+            }
+        }
+
+    %>
 
 </body>
 </html>
