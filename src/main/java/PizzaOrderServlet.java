@@ -30,7 +30,11 @@ public class PizzaOrderServlet extends HttpServlet {
         out.println("<p>" + crust + "</p>");
         out.println("<p>" + sauce + "</p>");
         out.println("<p>" + size + "</p>");
-        out.println("<p>" + toppings + "</p>");
+
+        for (String topping : toppings) {
+            out.println("<p>" + topping + "</p>");
+        }
+
         out.println("<p>" + address + "</p>");
 
     }
