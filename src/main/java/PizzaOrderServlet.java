@@ -9,9 +9,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "/pizza-order", urlPatterns = "/pizza-order")
 public class PizzaOrderServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        response.getWriter().println("<h1>This is the PizzaOrderServlet!</h1>");
+        request.getRequestDispatcher("/pizza-form.jsp").forward(request, response);
 
     }
 

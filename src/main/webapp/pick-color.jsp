@@ -14,7 +14,7 @@
 
 <h1>PICK A COLOR</h1>
 
-<form action="view-color" method="post">
+<form action="/view-color-two-serv" method="post">
 
     <label for="color-input">Enter Color Here
         <input name="color-input" id="color-input" type="text" placeholder="enter color here">
