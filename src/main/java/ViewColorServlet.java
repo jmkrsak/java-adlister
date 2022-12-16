@@ -12,6 +12,17 @@ public class ViewColorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("/pick-color.jsp").forward(request, response);
+
+    }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String color = request.getParameter("color-input");
+
+        request.setAttribute("color", color);
+
+        request.getRequestDispatcher("/view-color-two-serv").forward(request, response);
     }
 
 }

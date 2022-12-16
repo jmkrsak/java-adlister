@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "view-color-two-serv", urlPatterns = "/view-color-two-serv")
 public class ViewColorTwoServlet extends HttpServlet {
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String color = request.getParameter("color-input");
@@ -17,7 +17,7 @@ public class ViewColorTwoServlet extends HttpServlet {
 
         request.getRequestDispatcher("/view-color.jsp").forward(request, response);
 
-        response.sendRedirect("/view-color.jsp");
+//        response.sendRedirect("/view-color.jsp");
 
     }
 
