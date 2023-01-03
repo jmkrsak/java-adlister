@@ -3,16 +3,25 @@
 <html>
 <head>
 
-    
+    <title>All ads</title>
 
 </head>
 <body>
 
-    <jsp:useBean id="ads" scope="request" type="java.util.List"/>
-    <c:forEach var="ad" items="${ads}">
-        <p>${ad.title}</p>
-        <p>${ad.description}</p>
-    </c:forEach>
+    <div class="container">
+
+        <c:forEach var="ad" items="${ads}">
+
+            <div>
+
+                <p>Title: ${ad.title}</p>
+                <p>Description: ${ad.description}</p>
+
+            </div>
+
+        </c:forEach>
+
+    </div>
 
 </body>
 </html>
