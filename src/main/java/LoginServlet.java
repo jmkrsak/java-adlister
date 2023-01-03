@@ -13,9 +13,19 @@ public class LoginServlet extends HttpServlet {
 
         req.getRequestDispatcher("/login.jsp").forward(req, resp);
 
+//        HttpSession session = req.getSession();
+//
+//        boolean attemptInvalid = session.getAttribute("user") != "user";
+//
+//        if (attemptInvalid) {
+//            resp.sendRedirect("/login");
+//        }
+//
+//        resp.sendRedirect("/profile");
+
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         HttpSession session = req.getSession();
 
@@ -27,7 +37,8 @@ public class LoginServlet extends HttpServlet {
         if (attemptValid) {
 
             session.setAttribute("user", username);
-            resp.sendRedirect("/profile");
+            session.setAttribute("admin", true);
+            req.getRequestDispatcher("WEB-INF/profile.jsp").forward(req, resp);
 
         } else {
 
