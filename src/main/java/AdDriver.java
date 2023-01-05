@@ -7,17 +7,30 @@ import java.sql.Statement;
 
 public class AdDriver {
 
-    public static void main(String[] args) throws SQLException {
+    public Connection getConnection() {
+        return connection;
+    }
 
-        DriverManager.registerDriver(new Driver());
+    private Connection connection;
 
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/adlister_db?allowPublicKeyRetrieval=true&useSSL=false",
-                "root",
-                "codeup");
 
-        Statement statement = connection.createStatement();
 
-        statement.execute("INSERT INTO users (username, email, password) VALUES ('JohnM','@JohnM', '1234')");
+    public AdDriver() {
+
+        try {
+            DriverManager.registerDriver(new Driver());
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/adlister_db?allowPublicKeyRetrieval=true&useSSL=false",
+                    "root",
+                    "codeup");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+//        Statement statement = connection.createStatement();
+//
+//        statement.execute("INSERT INTO users (username, email, password) VALUES ('JohnM','@JohnM', '1234')");
 
     }
 

@@ -8,15 +8,8 @@ public class MySQLAdsDao implements Ads{
 
     public MySQLAdsDao(Config config) {
 
-        try {
-
-            this.connection = DriverManager.getConnection(config.getUrl(),config.getUser(),config.getPassword());
-
-            } catch (SQLException e) {
-
-            System.out.println("e.getMessage() = " + e.getMessage());
-
-        }
+            AdDriver adDriver = new AdDriver();
+            connection = adDriver.getConnection();
 
     }
 
@@ -51,11 +44,12 @@ public class MySQLAdsDao implements Ads{
 
         Statement stmt = connection.createStatement();
 
-        int result = stmt.executeUpdate("INSERT INTO ads (user_id, title, description) VALUES ('" + ad.getUserId() + "','" + ad.getTitle() + "','" + ad.getDescription() + "')");
+        int result = stmt.executeUpdate("INSERT INTO ads (user_id, title, description) VALUES ('" + ad.getUserId() + "','" + ad.getTitle() + "','" + ad.getDescription() + "')", Statement.RETURN_GENERATED_KEYS);
 
-        if (result > 0) {
+        ResultSet rs = stmt.getGeneratedKeys();
 
-            ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+
             return rs.getLong(1);
 
         } else {

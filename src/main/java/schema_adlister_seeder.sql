@@ -18,4 +18,9 @@ CREATE TABLE ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+INSERT INTO users (username, email, password) VALUES ('MattW', '@MattW', '5678');
+INSERT INTO users (username, email, password) VALUES ('AldanisV', '@AldanisV', '9012');
+INSERT INTO users (username, email, password) VALUES ('AlvinM', '@AlvinM', '3456');
+INSERT INTO users (username, email, password) VALUES ('MichaelK', '@MichaelK', '4235');
+INSERT INTO users (username, email, password) VALUES ('HectorP', '@HectorP', '7654');
 
